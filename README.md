@@ -145,12 +145,12 @@ SVM prediction downloads contain decision scores, which are not probabilities. T
 
 ## Run locally
 
-Use Python **3.14** or **3.12**, matching the training environment.
+Use Python **3.12** as the project runtime.
 
 ```bash
 git clone https://github.com/0xblaze/ml-assignment-2-2026AK05061.git
 cd ml-assignment-2-2026AK05061
-python3.14 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m streamlit run app.py
@@ -170,13 +170,13 @@ python train.py
 
 The inspection script reuses the cached raw CSV when present. The preparation script records the shared split and checksums. Training checks those checksums before fitting and calculates the reported metrics from the reloaded saved models.
 
-### Training environment
+### Project runtime and dependency versions
 
-Development and training were performed in WSL using VS Code.
+The project runtime is Python 3.12. Development used VS Code with WSL, and application execution was also verified in BITS Virtual Lab using Python 3.12. The saved models record their actual training environment in `model/manifest.json`. When changing Python versions, regenerate the model artifacts by running `python3.12 train.py` in the prepared project environment.
 
 | Component | Version |
 | --- | --- |
-| Python | 3.14.4 |
+| Python project runtime | 3.12 |
 | NumPy | 2.5.4 |
 | pandas | 3.1.1 |
 | SciPy | 1.18.1 |
@@ -190,7 +190,7 @@ The complete dependency list is pinned in `requirements.txt`. Keep deployment de
 
 ## Streamlit Community Cloud deployment
 
-The live application is deployed from this GitHub repository, using branch `main` and entrypoint `app.py`. For a fresh deployment, select Python 3.14 in Advanced settings to match the training environment, and install dependencies from the committed `requirements.txt`.
+The live application is deployed from this GitHub repository, using branch `main` and entrypoint `app.py`. For a fresh deployment, select Python 3.12 in Advanced settings and install dependencies from the committed `requirements.txt`. Regenerate saved model artifacts with Python 3.12 when standardising the training environment.
 
 Public access, all five model selections, the test CSV download, and re-upload of that CSV were checked on 8 November 2026. The live comparison matched the training results. For SVM, the confusion matrix contained **481 true negatives, 26 false positives, 44 false negatives and 292 true positives**.
 
