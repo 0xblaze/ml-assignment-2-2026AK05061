@@ -145,7 +145,7 @@ SVM prediction downloads contain decision scores, which are not probabilities. T
 
 ## Run locally
 
-Use Python **3.14**, matching the training environment.
+Use Python **3.14** or **3.12**, matching the training environment.
 
 ```bash
 git clone https://github.com/0xblaze/ml-assignment-2-2026AK05061.git
